@@ -36,19 +36,19 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">When?</a>
+            <a class="nav-link js-scroll-trigger" href="#about">What?</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#download">Where?</a>
+            <a class="nav-link js-scroll-trigger" href="#location">When and where?</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#rsvp">RSVP</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#rsvp">Registry</a>
+            <a class="nav-link js-scroll-trigger" href="#registry">Registry</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#rsvp">Extra</a>
+            <a class="nav-link js-scroll-trigger" href="#extra">Extra</a>
           </li>
         </ul>
       </div>
@@ -57,6 +57,11 @@
 
   <!-- Intro Header -->
   <header class="masthead">
+    <div id="texture"></div>
+    <video playsinline autoplay muted loop poster="/img/bg.jpg" id="bgvid">
+      <source src="/img/img/dallas.webm" type="video/webm">
+      <source src="/img/img/dallas.mp4" type="video/mp4">
+    </video>
     <div class="intro-body">
       <div class="container">
         <div class="row">
@@ -64,10 +69,23 @@
             <h1 class="brand-heading"></h1>
             <p class="intro-text"></p>
             <div id="clockdiv">
-              Days: <span class="days"></span><br> Hours: <span class="hours"></span><br> Minutes: <span class="minutes"></span><br> Seconds: <span class="seconds"></span></div>
-            <a href="#about" class="btn btn-circle js-scroll-trigger">
-                <i class="fa fa-angle-double-down animated"></i>
-              </a>
+              <div>
+                <span class="days"></span>
+                <div class="smalltext">Days</div>
+              </div>
+              <div>
+                <span class="hours"></span>
+                <div class="smalltext">Hours</div>
+              </div>
+              <div>
+                <span class="minutes"></span>
+                <div class="smalltext">Minutes</div>
+              </div>
+              <div>
+                <span class="seconds"></span>
+                <div class="smalltext">Seconds</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -79,69 +97,59 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>About Grayscale</h2>
-          <p>Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on
-            <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-          <p>This theme features stock photos by
-            <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of
-            <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-          <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with SASS and LESS files for easy customization!</p>
+          <h2>What's happening?</h2>
+          <p>A long time ago, in a city college far far away in Pasadena, two nerds met in an engineering club and eventually became friends. Some time later, after one shared class, innumerable CAPS-LOCKED texts, a garage metal concert in a stranger's house,
+            tearful heart-to-hearts, and a generous amount of watermelon vodka, those two nerds eventually figured things out and leveled up their friendship.
+          </p>
+          <p>Fast forward five years to the present, they still like each other a lot and figure they could share four score years or more together in their shared weirdness.</p>
+          <p>Those two people are actually us (Charlotte and Jakob), if you haven't figured that out yet. What we're trying to say is that we're gonna have a marriage ceremony.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Download Section -->
-  <section id="download" class="download-section content-section text-center">
+  <!-- When and where Section -->
+  <section id="location" class="location-section content-section text-center">
     <div class="container">
       <div class="col-lg-8 mx-auto">
-        <h2>Download Grayscale</h2>
-        <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-        <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+        <h2>When and where will the party get started?</h2>
+        <p>On <strong>Saturday March 31st, 2018</strong> our honored guests are cordially invited to a ceremony that will bind our two families together by the will of a higher power: the US government.</p>
+        <p>The ceremony will be held in the beautifully maintained Club at Five Knolls &trade; (see map below) and it will start at 3 pm in the afternoon, barring any unforseen inclement weather such as car-sized hail, shark tornadoes, and light sprinkles.</p>
+        <p>If the spirit is willing, the party can last all night, but since we have to go to bed on time to watch Jeopardy re-runs, it'll most likely end by 10pm.</p>
       </div>
     </div>
   </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="content-section text-center">
+  <!-- Map Section -->
+  <div id="map"></div>
+  <!-- RSVP Section -->
+  <section id="rsvp" class="rsvp-section content-section text-center">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mx-auto">
-          <h2>Contact Start Bootstrap</h2>
-          <p>Feel free to leave us a comment on the
-            <a href="http://startbootstrap.com/template-overviews/grayscale/">Grayscale template overview page</a> on Start Bootstrap to give some feedback about this theme!</p>
-          <ul class="list-inline banner-social-buttons">
-            <li class="list-inline-item">
-              <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg">
-                  <i class="fa fa-twitter fa-fw"></i>
-                  <span class="network-name">Twitter</span>
-                </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://github.com/BlackrockDigital/startbootstrap" class="btn btn-default btn-lg">
-                  <i class="fa fa-github fa-fw"></i>
-                  <span class="network-name">Github</span>
-                </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg">
-                  <i class="fa fa-google-plus fa-fw"></i>
-                  <span class="network-name">Google+</span>
-                </a>
-            </li>
-          </ul>
+          <h2>RSVP</h2>
+          <p>So you wanna join the party, huh? We'd love to have you join us. Just RSVP in the handy form in this section.
+          </p>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Map Section -->
-  <div id="map"></div>
+  <!-- Registry Section -->
+  <section id="registry" class="location-section content-section text-center">
+    <div class="container">
+      <div class="col-lg-8 mx-auto">
+        <h2>Registry</h2>
+        <p> Thanks for being so generous! In lieu of gifts, cash please</p>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Footer -->
   <footer>
     <div class="container text-center">
-      <p>Copyright &copy; Your Website 2017</p>
+      <p>Copyright &copy; Charlotte Anongos 2017</p>
     </div>
   </footer>
 
@@ -153,11 +161,16 @@
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false&callback=init"></script>
 
   <!-- Custom scripts for this template -->
   <script src="js/grayscale.min.js"></script>
 
+  <!--[if lt IE 9]>
+  <script>
+  document.createElement('video');
+</script>
+  <![endif]-->
 </body>
 
 </html>

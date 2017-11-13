@@ -50,10 +50,11 @@
 
 // Google Maps Scripts
 var map = null;
+
 // When the window has finished loading create our google map below
 google.maps.event.addDomListener(window, 'load', init);
 google.maps.event.addDomListener(window, 'resize', function() {
-	map.setCenter(new google.maps.LatLng(40.67, -73.94));
+	map.setCenter(new google.maps.LatLng(34.434, -118.497));
 });
 
 function init() {
@@ -61,15 +62,15 @@ function init() {
 	// For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
 	var mapOptions = {
 		// How zoomed in you want the map to start at (always required)
-		zoom: 15,
+		zoom: 17,
 
 		// The latitude and longitude to center the map (always required)
-		center: new google.maps.LatLng(40.67, -73.94), // New York
+		center: new google.maps.LatLng(34.434, -118.497), // Five Knolls
 
 		// Disables the default Google Maps UI components
 		disableDefaultUI: true,
-		scrollwheel: false,
-		draggable: false,
+		scrollwheel: true,
+		draggable: true,
 
 		// How you would like to style the map.
 		// This is where you would paste any style found on Snazzy Maps.
@@ -79,7 +80,7 @@ function init() {
 				elementType: 'geometry',
 				stylers: [
 					{
-						color: '#000000'
+						color: 'lavender'
 					},
 					{
 						lightness: 17
@@ -91,10 +92,10 @@ function init() {
 				elementType: 'geometry',
 				stylers: [
 					{
-						color: '#000000'
+						color: 'lavender'
 					},
 					{
-						lightness: 20
+						lightness: 40
 					}
 				]
 			},
@@ -103,7 +104,7 @@ function init() {
 				elementType: 'geometry.fill',
 				stylers: [
 					{
-						color: '#000000'
+						color: 'teal'
 					},
 					{
 						lightness: 17
@@ -115,7 +116,7 @@ function init() {
 				elementType: 'geometry.stroke',
 				stylers: [
 					{
-						color: '#000000'
+						color: 'teal'
 					},
 					{
 						lightness: 29
@@ -130,7 +131,7 @@ function init() {
 				elementType: 'geometry',
 				stylers: [
 					{
-						color: '#000000'
+						color: 'teal'
 					},
 					{
 						lightness: 18
@@ -142,7 +143,7 @@ function init() {
 				elementType: 'geometry',
 				stylers: [
 					{
-						color: '#000000'
+						color: 'teal'
 					},
 					{
 						lightness: 16
@@ -154,7 +155,7 @@ function init() {
 				elementType: 'geometry',
 				stylers: [
 					{
-						color: '#000000'
+						color: 'teal'
 					},
 					{
 						lightness: 21
@@ -168,7 +169,7 @@ function init() {
 						visibility: 'on'
 					},
 					{
-						color: '#000000'
+						color: 'teal'
 					},
 					{
 						lightness: 16
@@ -197,45 +198,45 @@ function init() {
 					}
 				]
 			},
-			{
-				featureType: 'transit',
-				elementType: 'geometry',
-				stylers: [
-					{
-						color: '#000000'
-					},
-					{
-						lightness: 19
-					}
-				]
-			},
+			// {
+			// 	featureType: 'transit',
+			// 	elementType: 'geometry',
+			// 	stylers: [
+			// 		{
+			// 			color: '#000000'
+			// 		},
+			// 		{
+			// 			lightness: 19
+			// 		}
+			// 	]
+			// },
 			{
 				featureType: 'administrative',
 				elementType: 'geometry.fill',
 				stylers: [
 					{
-						color: '#000000'
+						color: 'teal'
 					},
 					{
 						lightness: 20
 					}
 				]
-			},
-			{
-				featureType: 'administrative',
-				elementType: 'geometry.stroke',
-				stylers: [
-					{
-						color: '#000000'
-					},
-					{
-						lightness: 17
-					},
-					{
-						weight: 1.2
-					}
-				]
 			}
+			// {
+			// 	featureType: 'administrative',
+			// 	elementType: 'geometry.stroke',
+			// 	stylers: [
+			// 		{
+			// 			color: '#000000'
+			// 		},
+			// 		{
+			// 			lightness: 17
+			// 		},
+			// 		{
+			// 			weight: 1.2
+			// 		}
+			// 	]
+			// }
 		]
 	};
 
@@ -247,18 +248,52 @@ function init() {
 	map = new google.maps.Map(mapElement, mapOptions);
 
 	// Custom Map Marker Icon - Customize the map-marker.png file to customize your icon
-	var image = 'img/map-marker.svg';
-	var myLatLng = new google.maps.LatLng(40.67, -73.94);
+	var image = 'img/img/portal.png';
+	var myLatLng = new google.maps.LatLng(34.434, -118.497);
 	var beachMarker = new google.maps.Marker({
 		position: myLatLng,
 		map: map,
 		icon: image
 	});
+
+	var infowindow = new google.maps.InfoWindow();
+	var service = new google.maps.places.PlacesService(map);
+
+	service.getDetails(
+		{
+			placeId: 'ChIJjR4d7ueHwoAREN-AP-cton0'
+		},
+		function(place, status) {
+			if (status === google.maps.places.PlacesServiceStatus.OK) {
+				console.log(place);
+				var marker = new google.maps.Marker({
+					map: map,
+					icon: image,
+					position: place.geometry.location
+				});
+				google.maps.event.addListener(marker, 'click', function() {
+					infowindow.setContent(
+						'<div><strong>' +
+							place.name +
+							'</strong><br>' +
+							'<br>' +
+							place.formatted_address +
+							'<br><br>' +
+							'<a target="_blank" href="' +
+							place.url +
+							'">View on Google Maps</a>' +
+							'</div>'
+					);
+					infowindow.open(map, this);
+				});
+			}
+		}
+	);
 }
 
 //countdown script
 var deadline = 'March 31 2018 15:00:00 GMT-0800';
-//
+
 function getTimeRemaining(endtime) {
 	var t = Date.parse(endtime) - Date.parse(new Date());
 	var seconds = Math.floor((t / 1000) % 60);
@@ -285,7 +320,7 @@ function initializeClock(id, endtime) {
 	var secondsSpan = clock.querySelector('.seconds');
 	function updateClock() {
 		var t = getTimeRemaining(endtime);
-		daysSpan.innerHTML = ('0' + t.days).slice(-2);
+		daysSpan.innerHTML = ('0' + t.days).slice(-3);
 		hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
 		minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
 		secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
