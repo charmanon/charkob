@@ -320,6 +320,7 @@ function initializeClock(id, endtime) {
 	var secondsSpan = clock.querySelector('.seconds');
 	function updateClock() {
 		var t = getTimeRemaining(endtime);
+		console.log(t);
 		daysSpan.innerHTML = ('0' + t.days).slice(-3);
 		hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
 		minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
