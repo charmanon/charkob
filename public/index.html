@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title></title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="css/style.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Charlotte and Jakob</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#about">What?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#location">When and where?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#rsvp">RSVP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#registry">Registry</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#extra">Extra</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Intro Header -->
+  <header class="masthead">
+    <div id="texture"></div>
+    <video playsinline autoplay muted loop poster="/img/bg.jpg" id="bgvid">
+      <source src="/img/dallas.webm" type="video/webm">
+      <source src="/img/dallas.mp4" type="video/mp4">
+    </video>
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <h1 class="brand-heading"></h1>
+            <p class="intro-text"></p>
+            <div id="clockdiv">
+              <div>
+                <span class="days"></span>
+                <div class="smalltext">Days</div>
+              </div>
+              <div>
+                <span class="hours"></span>
+                <div class="smalltext">Hours</div>
+              </div>
+              <div>
+                <span class="minutes"></span>
+                <div class="smalltext">Minutes</div>
+              </div>
+              <div>
+                <span class="seconds"></span>
+                <div class="smalltext">Seconds</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="content-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>What's happening?</h2>
+          <p>A long time ago, in a city college far far away in Pasadena, two nerds met in an engineering club and eventually became friends. Some time later, after one shared class, innumerable CAPS-LOCKED texts, a garage metal concert in a stranger's house,
+            tearful heart-to-hearts, and a generous amount of watermelon vodka, those two nerds eventually figured things out and leveled up their friendship.
+          </p>
+          <p>Fast forward five years to the present, they still like each other a lot and figure they could share four score years or more together in their shared weirdness.</p>
+          <p>Those two people are actually us (Charlotte and Jakob), if you haven't figured that out yet. What we're trying to say is that we're gonna have a marriage ceremony.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When and where Section -->
+  <section id="location" class="location-section content-section text-center">
+    <div class="container">
+      <div class="col-lg-8 mx-auto">
+        <h2>When and where will the party get started?</h2>
+        <p>On <strong>Saturday March 31st, 2018</strong> our honored guests are cordially invited to a ceremony that will bind our two families together by the will of a higher power: the US government.</p>
+        <p>The ceremony will be held in the beautifully maintained Club at Five Knolls &trade; (see map below) and it will start at 4 pm in the afternoon, barring any unforseen inclement weather such as car-sized hail, shark tornadoes, and light sprinkles.</p>
+        <p>If the spirit is willing, the party can last all night, but since we have to go to bed on time to watch Jeopardy re-runs, it'll most likely end by 10pm.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section id="map-container">
+    <div id="floating-panel">Parking is available at the lot adjacent to the Club and on the streets marked red. Don't worry about the No Stopping signs posted, Five Knolls is used for overflow parking all the time.</div>
+    <div id="map"></div>
+  </section>
+
+  <!-- RSVP Section -->
+  <section id="rsvp" class="rsvp-section content-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>RSVP</h2>
+          <p>So you wanna join the party, huh? We'd love to have you join us. Just RSVP in the handy form in this section.
+          </p>
+          <!-- <form id="rsvpForm" role="form" data-toggle="validator">
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Name</label>
+              <input type="name" class="form-control" id="inputName" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Email address</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">How many guests are you bringing?</label>
+              <select class="form-control" id="inputNumGuests">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Name of guests</label>
+              <textarea class="form-control" id="inputGuests" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <div class="col-md-9 col-md-offset-3">
+                <div id="messages"></div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form> -->
+          <form action=" " method="post" id="contact_form">
+            <fieldset>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label">Name</label>
+                <div class="input-group">
+                  <input name="first_name" id="first_name" placeholder="First Name" class="form-control" type="text">
+                </div>
+              </div>
+
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-md-4 control-label">E-Mail</label>
+                <div class="input-group">
+                  <input name="email" id="email" placeholder="E-Mail Address" class="form-control" type="text">
+                </div>
+              </div>
+
+
+              <!-- Text input-->
+
+              <div class="form-group">
+                <label class="col-md-4 control-label">Phone #</label>
+                <div class="input-group">
+                  <input name="phone" id="phone" placeholder="(888) 867-5309" class="form-control" type="text">
+                </div>
+              </div>
+
+              <!-- Select Basic -->
+
+              <div class="form-group">
+                <label class="col-md-4 control-label">How many guests?</label>
+                <select class="form-control" id="inputNumGuests">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+              </div>
+
+              <!-- Text area -->
+
+              <div class="form-group">
+                <label class="col-md-4 control-label">Name(s) of guest(s)</label>
+                <div class="input-group">
+                  <textarea class="form-control" id="inputGuest" name="comment" placeholder="Guests"></textarea>
+                </div>
+              </div>
+
+              <!-- Success message -->
+              <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Thanks for your RSVP! Watch out for cool updates in the future :).</div>
+
+              <!-- Button -->
+              <div class="form-group">
+                <label class="col-md-4 control-label"></label>
+                <button type="submit" class="btn btn-primary">Send</button>
+              </div>
+
+            </fieldset>
+          </form>
+
+          <p id="calendar">Click here to add to your google calendar! <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MHZoZzBjcWoyaGwxbmNpazZsMGc5Z3BpbTMgZWk3N2NoODZsNTJkYnF1dG04YTQwcjFmZTRAZw&amp;tmsrc=ei77ch86l52dbqutm8a40r1fe4%40group.calendar.google.com"><img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_en.gif"></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registry Section -->
+  <section id="registry" class="location-section content-section text-center">
+    <div class="container">
+      <div class="col-lg-8 mx-auto">
+        <h2>Registry</h2>
+        <div style="width:200px;margin:0 auto;"><a href="http://www.honeyfund.com/wedding/Anonkin" style="text-align:left;background:url('http://www.honeyfund.com/share/honeyfund3.png') no-repeat;display:block;width:200px;height:100px;text-indent:-9999em;"></a>
+        </div>
+        <p> Thanks for being so generous!</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p>Copyright &copy; Charlotte Anongos 2017</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.js">
+  </script>
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAD84VL7epVAPIOysaP6lzR6pbXPUlpgRc&sensor=false&libraries=geometry,places&callback=init" async defer></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/app.min.js"></script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+var config = {
+	apiKey: 'AIzaSyCBdC9STBmve2JTV8BMy0Z3jIsDMoaaCfM',
+	authDomain: 'charkobanonkin.firebaseapp.com',
+	databaseURL: 'https://charkobanonkin.firebaseio.com',
+	projectId: 'charkobanonkin',
+	storageBucket: 'charkobanonkin.appspot.com',
+	messagingSenderId: '703268822768'
+};
+firebase.initializeApp(config);
+</script>
+  <!--[if lt IE 9]>
+    <
+    script >
+      document.createElement('video');
+  </script>
+  <![endif]-->
+</body>
+
+</html>
