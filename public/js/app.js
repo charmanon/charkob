@@ -245,7 +245,7 @@ function init() {
 	];
 	var parkingCoordinates2 = [
 		{ lat: 34.432882, lng: -118.499159 },
-		{ lat: 34.432594, lng: -118.498627 }
+		{ lat: 34.432607, lng: -118.498696 }
 	];
 
 	var parkingPath1 = new google.maps.Polyline({
@@ -284,7 +284,7 @@ function init() {
 				var marker = new google.maps.Marker({
 					map: map,
 					icon: image,
-					position: place.geometry.location
+					position: { lat: 34.434008, lng: -118.496986 }
 				});
 				google.maps.event.addListener(marker, 'click', function() {
 					infowindow.setContent(
@@ -355,7 +355,8 @@ $(document).ready(function() {
 				first_name: {
 					validators: {
 						stringLength: {
-							min: 2
+							min: 2,
+							max: 40
 						},
 						notEmpty: {
 							message: 'Your name is missing!'
@@ -438,4 +439,9 @@ $(document).ready(function() {
 			// return false in to stop page from reloading
 			return false;
 		});
+});
+
+/** Carousel **/
+$('.carousel').carousel({
+	interval: 2000
 });
