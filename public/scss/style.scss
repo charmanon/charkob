@@ -218,22 +218,43 @@ a {
 		background-size: cover;
 	}
 
+	#bg-mobile {
+		@media (max-width: 560px) {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -91;
+			-ms-transform: translateX(-50%) translateY(-50%);
+			-moz-transform: translateX(-50%) translateY(-50%);
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+			background: url('../img/mobile.jpg') no-repeat;
+			background-size: cover;
+		}
+	}
+
 	video#bgvid {
-		opacity: 0.4;
-		position: fixed;
-		top: 50%;
-		left: 50%;
-		min-width: 100%;
-		min-height: 100%;
-		width: auto;
-		height: auto;
-		z-index: -100;
-		-ms-transform: translateX(-50%) translateY(-50%);
-		-moz-transform: translateX(-50%) translateY(-50%);
-		-webkit-transform: translateX(-50%) translateY(-50%);
-		transform: translateX(-50%) translateY(-50%);
-		background: url('../img/bg.jpg') no-repeat;
-		background-size: cover;
+		display: none;
+		@media (min-width: 560px) {
+			display: flex;
+			opacity: 0.4;
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			min-width: 100%;
+			min-height: 100%;
+			width: auto;
+			height: auto;
+			z-index: -100;
+			-ms-transform: translateX(-50%) translateY(-50%);
+			-moz-transform: translateX(-50%) translateY(-50%);
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+		}
 	}
 
 	@media screen and (max-device-width: 800px) {
@@ -338,21 +359,33 @@ a {
 
 #floating-panel {
 	position: absolute;
-	font-size: 20px;
+	font-size: 15px;
 	top: 10px;
 	z-index: 1;
 	color: white;
-	background-color: rgba(0, 0, 255, 0.4);
-	padding: 5px;
+	background-color: rgba(0, 0, 255, 0.5);
 	text-align: center;
 	font-family: monospace;
 	line-height: 20px;
-	padding-left: 10px;
+	margin-right: 20px;
 }
 
 #map {
 	width: 100%;
 	height: 400px;
+}
+
+.registry {
+	margin-bottom: 20px;
+}
+
+.amazon {
+	width: 290px;
+	height: auto;
+	@media (max-width: 768px) {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
 }
 
 @media (min-width: 992px) {

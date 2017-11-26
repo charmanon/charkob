@@ -348,6 +348,10 @@ function initializeClock(id, endtime) {
 
 initializeClock('clockdiv', deadline);
 
+//hides messages for those not attending
+$('.conditionalNo').hide();
+
+//shows the correct divs depending on guest attendance
 $('#yes').click(function() {
 	if ($('#yes').is(':checked')) {
 		$('.conditionalYes').show();
@@ -482,6 +486,10 @@ $(document).ready(function() {
 			$('#inputGuest').val('');
 			$('#inputNotGuest').val('');
 			$('input[type="radio"]').prop('checked', false);
+
+			setTimeout(function() {
+				$('#success_message').slideUp({ opacity: 'show' }, 'slow');
+			}, 3000);
 			// return false in to stop page from reloading
 			return false;
 		});
