@@ -30,7 +30,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Charlotte and Jakob</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Charlotte and Jakob's Party</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -50,7 +50,7 @@
             <a class="nav-link js-scroll-trigger" href="#registry">Registry</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#extra">Extra</a>
+            <a class="nav-link js-scroll-trigger" href="#extra">FAQ</a>
           </li>
         </ul>
       </div>
@@ -97,11 +97,12 @@
   <!-- About Section -->
   <section id="about" class="content-section text-center">
     <div class="container mobile-carousel photos">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carousel1" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carousel1" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel1" data-slide-to="1"></li>
+          <li data-target="#carousel1" data-slide-to="2"></li>
+          <li data-target="#carousel1" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
@@ -113,12 +114,15 @@
           <div class="carousel-item">
             <img class="d-block img-fluid" src="img/bg.jpg" alt="Third slide">
           </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="img/bg.jpg" alt="Fourth slide">
+          </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -209,12 +213,14 @@
         </div>
       </div>
     </div>
+
     <div class="container mobile-carousel">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <div id="carousel2" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          <li data-target="#carousel2" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel2" data-slide-to="1"></li>
+          <li data-target="#carousel2" data-slide-to="2"></li>
+          <li data-target="#carousel2" data-slide-to="3"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
           <div class="carousel-item active">
@@ -226,12 +232,15 @@
           <div class="carousel-item">
             <img class="d-block img-fluid" src="img/bg.jpg" alt="Third slide">
           </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src="img/bg.jpg" alt="Fourth slide">
+          </div>
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <a class="carousel-control-prev" href="#carousel2" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#carousel2" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="sr-only">Next</span>
         </a>
@@ -290,15 +299,23 @@
               <!-- Text input-->
 
               <div class="form-group">
-                <label class="col-md-4 control-label">Phone #</label>
+                <label class="col-md-4 control-label">Phone number</label>
                 <div class="input-group">
                   <input name="phone" id="phone" placeholder="(888) 867-5309" class="form-control" type="text">
                 </div>
               </div>
 
-              <!-- Select Basic -->
+              <!-- Can you make it -->
 
               <div class="form-group">
+                <label class="col-md-4 control-label">Will you be able to attend?</label>
+                <label class="radio-inline"><input type="radio" name="optradio"  id="yes" value="yes"> Yes </label>
+                <label class="radio-inline"><input type="radio" name="optradio"  id="no" value="no"> No </label>
+              </div>
+
+              <!-- Select Basic -->
+
+              <div class="form-group conditionalYes">
                 <label class="col-md-4 control-label">How many guests?</label>
                 <select class="form-control" id="inputNumGuests">
                     <option>1</option>
@@ -311,10 +328,19 @@
 
               <!-- Text area -->
 
-              <div class="form-group">
+              <div class="form-group conditionalYes">
                 <label class="col-md-4 control-label">Name(s) of guest(s)</label>
                 <div class="input-group">
                   <textarea class="form-control" id="inputGuest" name="comment" placeholder="Guests"></textarea>
+                </div>
+              </div>
+
+              <!-- Text area -->
+
+              <div class="form-group conditionalNo">
+                <label class="col-md-4 control-label">Message for Charlotte and Jakob</label>
+                <div class="input-group">
+                  <textarea class="form-control" id="inputNotGuest" name="nocomment" placeholder="Write something nice!"></textarea>
                 </div>
               </div>
 
@@ -347,6 +373,22 @@
     </div>
   </section>
 
+  <!-- Extra Section -->
+  <section id="extra" class="rsvp-section content-section text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2>FAQ</h2>
+          <span class="questions">Can I wear a pokemon onesie/Renaissance costume/vaguely videogame inspired formal wear?<p class="answers">The theme of the wedding is FUN! There will be lots of activities for everyone and it'll be better if you can move around freely. We encourage bright bold colors and any videogame/cartoon inspired clothing. Or even a costume if you'd like. If you insist on wearing formal clothing, you'll be given something in keeping with the theme. If you'd like a visual cue for what to wear, check out this <a href = "https://www.pinterest.com/canongos/acceptable-wedding-wear-for-guests/"> pinterest board!</a></p>
+          </span>
+          <span class="questions">Can I bring my dog/cat/iguana?<p class="answers">While we would love to have all creatures big and small attend our wedding, the venue is sadly not equipped to handle Princess Poochie. Plus why would you traumatize them with loud and drunk humans?</p>
+          </span>
+          <span class="questions">Can I bring a plus one?<p class="answers">We wanted to invite everyone we knew, but the venue can only hold so many bodies (75 to be exact). We'd like our closest family and friends there so we've invited people we know. We can make judgement calls of your plus one though, so call or text us at (818)281-0834 (Charlotte) or (818)425-1924 (Jakob).</p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
   <footer>

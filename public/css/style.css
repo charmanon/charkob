@@ -96,7 +96,8 @@ a {
   background-color: lavender;
   color: black; }
 
-#rsvp {
+#rsvp,
+#extra {
   background-color: lavender;
   color: black; }
 
@@ -430,3 +431,11 @@ body {
     display: flex; }
   .mobile-carousel {
     display: none; } }
+
+span.questions {
+  font-size: 1.2em;
+  font-weight: bold; }
+
+p.answers {
+  font-size: 0.9em;
+  font-weight: lighter; }

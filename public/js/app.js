@@ -348,6 +348,20 @@ function initializeClock(id, endtime) {
 
 initializeClock('clockdiv', deadline);
 
+$('#yes').click(function() {
+	if ($('#yes').is(':checked')) {
+		$('.conditionalYes').show();
+		$('.conditionalNo').hide();
+	}
+});
+
+$('#no').click(function() {
+	if ($('#no').is(':checked')) {
+		$('.conditionalYes').hide();
+		$('.conditionalNo').show();
+	}
+});
+
 $(document).ready(function() {
 	$('#contact_form')
 		.bootstrapValidator({
@@ -380,7 +394,14 @@ $(document).ready(function() {
 						},
 						phone: {
 							country: 'US',
-							message: 'Please supply a vaild phone number with area code'
+							message: 'Please supply a valid phone number with area code'
+						}
+					}
+				},
+				optradio: {
+					validators: {
+						notEmpty: {
+							message: 'Please let us know if you are going'
 						}
 					}
 				},
@@ -388,6 +409,13 @@ $(document).ready(function() {
 					validators: {
 						notEmpty: {
 							message: 'Please write the name(s) of your guest(s)'
+						}
+					}
+				},
+				nocomment: {
+					validators: {
+						notEmpty: {
+							message: 'Please write something nice'
 						}
 					}
 				}
@@ -415,19 +443,36 @@ $(document).ready(function() {
 			var phone = $('#phone').val();
 			var numGuest = $('#inputNumGuests').val();
 			var nameGuest = $('#inputGuest').val();
+			var yesOrNo = $('input[name=optradio]:checked').val();
+			var guestComment = $('#inputNotGuest').val();
 
 			//push the new message object into Firebase using the reference variable
-			firebase
-				.database()
-				.ref()
-				.child('/rsvp')
-				.push({
-					Name: firstName,
-					Email: email,
-					Phone: phone,
-					Number: numGuest,
-					GuestNames: nameGuest
-				});
+			if (guestComment === '') {
+				firebase
+					.database()
+					.ref()
+					.child('/rsvp')
+					.child('/yes')
+					.push({
+						Name: firstName,
+						Email: email,
+						Phone: phone,
+						Number: numGuest,
+						GuestNames: nameGuest
+					});
+			} else {
+				firebase
+					.database()
+					.ref()
+					.child('/rsvp')
+					.child('/no')
+					.push({
+						Name: firstName,
+						Email: email,
+						Phone: phone,
+						GuestComment: guestComment
+					});
+			}
 
 			// Clear the input box
 			$('#first_name').val('');
@@ -435,7 +480,8 @@ $(document).ready(function() {
 			$('#phone').val('');
 			$('#inputNumGuests').val('');
 			$('#inputGuest').val('');
-
+			$('#inputNotGuest').val('');
+			$('input[type="radio"]').prop('checked', false);
 			// return false in to stop page from reloading
 			return false;
 		});
@@ -444,4 +490,8 @@ $(document).ready(function() {
 /** Carousel **/
 $('.carousel').carousel({
 	interval: 2000
+});
+
+$('#carousel1, #carousel2').carousel({
+	interval: 3000
 });
