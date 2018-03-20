@@ -24,7 +24,7 @@ var banner = [
 // Compiles SCSS files from /scss into /css
 gulp.task('sass', function() {
 	return gulp
-		.src('scss/style.scss')
+		.src('scss/style1.scss')
 		.pipe(sass())
 		.pipe(
 			header(banner, {
@@ -42,7 +42,7 @@ gulp.task('sass', function() {
 // Minify compiled CSS
 gulp.task('minify-css', ['sass'], function() {
 	return gulp
-		.src('css/style.css')
+		.src('css/style1.css')
 		.pipe(
 			cleanCSS({
 				compatibility: 'ie8'
@@ -64,7 +64,7 @@ gulp.task('minify-css', ['sass'], function() {
 // Minify custom JS
 gulp.task('minify-js', function() {
 	return gulp
-		.src('js/app.js')
+		.src('js/app1.js')
 		.pipe(uglify())
 		.pipe(
 			header(banner, {
@@ -132,18 +132,14 @@ gulp.task('browserSync', function() {
 });
 
 // Dev task with browserSync
-gulp.task(
-	'dev',
-	['browserSync', 'sass', 'minify-css', 'minify-js'],
-	function() {
-		gulp.watch('scss/*.scss', ['sass']);
-		gulp.watch('css/*.css', ['minify-css']);
-		gulp.watch('js/*.js', ['minify-js']);
-		// Reloads the browser whenever HTML or JS files change
-		gulp.watch('*.html', browserSync.reload);
-		gulp.watch('js/**/*.js', browserSync.reload);
-	}
-);
+gulp.task('dev', ['browserSync', 'sass', 'minify-css'], function() {
+	gulp.watch('scss/*.scss', ['sass']);
+	gulp.watch('css/*.css', ['minify-css']);
+	gulp.watch('js/*.js', ['minify-js']);
+	// Reloads the browser whenever HTML or JS files change
+	gulp.watch('*.html', browserSync.reload);
+	gulp.watch('js/**/*.js', browserSync.reload);
+});
 
 // defining single task with name "deploy"
 gulp.task('deploy', function() {
@@ -153,7 +149,7 @@ gulp.task('deploy', function() {
 			Bucket: 'charandjake.win'
 		}
 	});
-	var headers = { 'Cache-Control': 'max-age=315360000, no-transform, public' };
+	var headers = { 'Cache-Control': 'max-age=0, no-transform, public' };
 
 	// push all the contents of ./img folder to s3
 	gulp
