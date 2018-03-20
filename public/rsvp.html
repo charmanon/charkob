@@ -45,6 +45,7 @@
       <div class="col-lg-12">
         <div class="panel panel-default">
           <div class="panel-heading">
+            <button type="submit" class="btn btn-info btn-lg submit">Send updates</button>
             <h3 class="panel-title">People who are attending</h3>
           </div>
           <div class="panel-body">
@@ -52,11 +53,13 @@
               <thead>
                 <tr>
                   <th>#</th>
+                  <th>Send update</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Number of Guests</th>
                   <th>Guest Names</th>
+                  <th>Sent update</th>
                 </tr>
               </thead>
               <tbody id="tableYes">
@@ -101,8 +104,14 @@
   <script src="https://code.jquery.com/jquery.js"></script>
 
   <!-- Script -->
-  <script>
-  // ========================================== START CODING BELOW!!
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript">
+  (function() {
+	emailjs.init('user_OYkYSXw3f6ofnXejGABCZ');
+})();
+</script>
+<script>
+// ========================================== START CODING BELOW!!
 
 // Initialize Firebase
 var config = {
@@ -147,7 +156,8 @@ dataRef
 			$('#tableYes').append(
 				"<tr><th scope='row'> " +
 					row++ +
-					"</th><td id='yesName'>" +
+					"</th><td><input type='checkbox' data-name='"+ childSnapshot.val().Name +"' data-email='"+childSnapshot.val().Email + "' id='" + row + "'/>" +
+          " </td><td id='yesName'>" +
 					childSnapshot.val().Name +
 					" </td><td id='yesEmail'> " +
 					childSnapshot.val().Email +
@@ -157,9 +167,10 @@ dataRef
 					childSnapshot.val().Number +
 					" </td><td id='yesGuests'> " +
 					childSnapshot.val().GuestNames +
-					' </td></tr>'
+					" </td><td id='sent'> <input type='checkbox' value='" +
+          childSnapshot.val().Sent +
+          "'/></td></tr>"
 			);
-			console.log('Total: ' + total);
 			$('#total').html(total);
 			// Handle the errors
 		},
@@ -175,7 +186,7 @@ dataRef
 		'child_added',
 		function(childSnapshot) {
 			// Log everything that's coming out of snapshot
-			console.log(childSnapshot.val());
+
 
 			// full list of items to the well
 			$('#tableNo').append(
@@ -198,6 +209,42 @@ dataRef
 			console.log('Errors handled: ' + errorObject.code);
 		}
 	);
+
+  $('.submit').on('click', function(event) {
+    var obj = [];
+     $('input:checked').each(function() {
+       var person = {name:$(this).attr("data-name"), email:$(this).attr("data-email")};
+       obj.push(person);
+
+    });
+     console.log(obj);
+
+     for (var i = 0; i < Object.keys(obj).length; i ++){
+       console.log(obj[i].name);
+       console.log(obj[i].email);
+
+       if (obj[i].email != null){
+         emailjs
+           .send('char_m_anon_gmail_com', 'update', {
+             to_email: obj[i].email,
+             to_name: obj[i].name
+           })
+           .then(
+             function(response) {
+               console.log(
+                 'SUCCESS. status=%d, text=%s',
+                 response.status,
+                 response.text
+               );
+             },
+             function(err) {
+               console.log('FAILED. error=', err);
+             }
+           );
+       }
+     }
+  });
+
 </script>
 
 </body>
